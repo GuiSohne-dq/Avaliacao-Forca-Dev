@@ -1,0 +1,27 @@
+{
+  "name": "forca-dev",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+  "dev": "concurrently -n api,web \"npm --prefix backend run dev\" \"npm --prefix frontend run dev\""
+},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GuiSohne-dq/Avaliacao-Forca-Dev.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/GuiSohne-dq/Avaliacao-Forca-Dev/issues"
+  },
+  "homepage": "https://github.com/GuiSohne-dq/Avaliacao-Forca-Dev#readme",
+  "devDependencies": {
+    "concurrently": "^10.0.7"
+  }
+}

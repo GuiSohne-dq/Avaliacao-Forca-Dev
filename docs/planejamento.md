@@ -11,7 +11,7 @@ Relação: **Palavra (1) — (N) Partida**. Não existe tabela de ranking: ele �
 | Coluna | Tipo Prisma | Observação |
 |---|---|---|
 | id | Int | chave primária, autoincrement |
-| texto | String | único |
+| palavra | String | único |
 | categoria | String | |
 
 ### Partida (`partidas`)

@@ -1,0 +1,353 @@
+:root {
+  --fundo: #070707;
+  --cartao: #101010;
+  --elevado: #181818;
+  --borda: #262626;
+  --texto: #f1ece8;
+  --suave: #9a948f;
+  --destaque: #cf4a4a;
+  --destaque-hover: #dc5a5a;
+  --serif: 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, serif;
+  --mono: ui-monospace, 'Cascadia Code', Consolas, Menlo, monospace;
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+::selection {
+  background: rgba(207, 74, 74, 0.35);
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: radial-gradient(ellipse at top, #1a0c0c 0%, var(--fundo) 60%);
+  color: var(--texto);
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.6;
+}
+
+#root {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 48px 16px;
+  text-align: center;
+}
+
+/* cartão central de cada tela */
+main {
+  padding: 40px 32px;
+  background: var(--cartao);
+  border: 1px solid var(--borda);
+  border-top: 2px solid var(--destaque);
+  border-radius: 20px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.6);
+  animation: subir 0.45s ease-out;
+}
+
+@keyframes subir {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+h1 {
+  margin: 0 0 8px;
+  font-family: var(--serif);
+  font-size: 2.3rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--texto);
+}
+
+.titulo::after {
+  content: '.';
+  color: var(--destaque);
+}
+
+h2 {
+  margin: 40px 0 16px;
+  padding-top: 28px;
+  border-top: 1px solid var(--borda);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--suave);
+}
+
+p {
+  margin: 8px 0;
+  color: var(--suave);
+}
+
+strong {
+  color: var(--texto);
+}
+
+.subtitulo {
+  margin: 0 0 28px;
+  font-size: 1rem;
+}
+
+/* formulário da tela inicial */
+form {
+  display: flex;
+  gap: 10px;
+}
+
+input {
+  flex: 1;
+  min-width: 0;
+  padding: 13px 16px;
+  background: var(--elevado);
+  color: var(--texto);
+  border: 1px solid var(--borda);
+  border-radius: 12px;
+  font: inherit;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input::placeholder {
+  color: var(--suave);
+}
+
+input:focus {
+  outline: none;
+  border-color: var(--destaque);
+  box-shadow: 0 0 0 3px rgba(207, 74, 74, 0.18);
+}
+
+button {
+  padding: 13px 22px;
+  background: var(--destaque);
+  color: #fff;
+  border: 0;
+  border-radius: 12px;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+}
+
+button:hover:not(:disabled) {
+  background: var(--destaque-hover);
+}
+
+button:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+button:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+button:focus-visible {
+  outline: 2px solid var(--texto);
+  outline-offset: 3px;
+}
+
+/* mensagens de erro da API */
+[role='alert'] {
+  margin: 16px 0;
+  padding: 12px 16px;
+  background: rgba(207, 74, 74, 0.1);
+  border: 1px solid rgba(207, 74, 74, 0.4);
+  border-radius: 12px;
+  color: #e8a0a0;
+  font-size: 0.92rem;
+}
+
+/* tela de jogo */
+.info {
+  margin: 0 0 4px;
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.mascara {
+  margin: 24px 0 20px;
+  font-family: var(--mono);
+  font-size: clamp(1.7rem, 8vw, 2.6rem);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  word-break: break-all;
+  color: var(--texto);
+}
+
+.vidas-barras {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+}
+
+.vida {
+  width: 38px;
+  height: 6px;
+  border-radius: 3px;
+  background: var(--destaque);
+  transition: background 0.3s;
+}
+
+.vida.perdida {
+  background: var(--borda);
+}
+
+.vidas p {
+  margin: 12px 0 8px;
+  font-size: 0.85rem;
+}
+
+/* o jogo "conversando" com o jogador */
+.dica {
+  min-height: 1.6em;
+  margin: 4px 0 24px;
+  font-size: 0.95rem;
+  color: var(--texto);
+}
+
+.aviso {
+  margin: -12px 0 20px;
+  font-size: 0.9rem;
+  color: #e8a0a0;
+}
+
+.teclado {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(42px, 1fr));
+  gap: 8px;
+  max-width: 480px;
+  margin: 8px auto 4px;
+}
+
+.teclado button {
+  padding: 12px 0;
+  background: var(--elevado);
+  color: var(--texto);
+  border: 1px solid var(--borda);
+  border-bottom-width: 3px;
+  border-radius: 10px;
+  font-family: var(--mono);
+  transition: border-color 0.2s, background 0.3s, color 0.3s;
+}
+
+.teclado button:hover:not(:disabled) {
+  background: var(--elevado);
+  border-color: var(--destaque);
+}
+
+.teclado button:disabled {
+  opacity: 0.3;
+}
+
+/* acerto: claro com borda branca; erro: vermelho e riscado */
+.teclado button.acerto:disabled {
+  background: rgba(241, 236, 232, 0.12);
+  border-color: rgba(241, 236, 232, 0.6);
+  color: var(--texto);
+  opacity: 1;
+}
+
+.teclado button.erro:disabled {
+  background: rgba(207, 74, 74, 0.14);
+  border-color: rgba(207, 74, 74, 0.55);
+  color: #e8a0a0;
+  text-decoration: line-through;
+  opacity: 1;
+}
+
+/* ranking */
+.ranking {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.95rem;
+}
+
+.ranking th,
+.ranking td {
+  padding: 11px 12px;
+  border-bottom: 1px solid var(--borda);
+}
+
+.ranking th {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--suave);
+}
+
+.ranking tbody tr {
+  transition: background 0.2s;
+}
+
+.ranking tbody tr:hover {
+  background: var(--elevado);
+}
+
+.ranking tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.ranking tbody tr:first-child td {
+  font-weight: 600;
+  color: var(--destaque-hover);
+}
+
+/* tela de fim */
+.resultado {
+  margin-bottom: 12px;
+}
+
+.resultado.derrota {
+  color: #e8a0a0;
+}
+
+.palavra {
+  display: inline-block;
+  padding: 2px 12px;
+  background: var(--elevado);
+  border: 1px solid var(--borda);
+  border-radius: 8px;
+  font-family: var(--mono);
+  letter-spacing: 0.08em;
+}
+
+.pontos {
+  margin: 28px 0;
+}
+
+.pontos span {
+  display: block;
+  font-family: var(--serif);
+  font-size: 3.4rem;
+  line-height: 1.1;
+  color: var(--destaque-hover);
+}
+
+@media (max-width: 480px) {
+  main {
+    padding: 28px 18px;
+  }
+
+  form {
+    flex-direction: column;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}

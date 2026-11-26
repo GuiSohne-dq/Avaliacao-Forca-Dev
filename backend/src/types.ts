@@ -1,6 +1,7 @@
 
 export type StatusPartida = 'em_andamento' | 'vitoria' | 'derrota'
 
+//Estrutura dos dados da partida
 export interface EstadoPartida{
     id: number
     jogador: string
@@ -13,6 +14,7 @@ export interface EstadoPartida{
     palavra: string | null 
 }
 
+//Estrutura de cada item do ranking
 export interface ItemRanking {
     jogador: string
     pontos: number
@@ -20,6 +22,7 @@ export interface ItemRanking {
     finalizadaEm: string
 }
 
+//Estrutura interna dos dados utilizados
 export interface PartidaJogo{
     palavra: string
     letrasTentadas: string[]

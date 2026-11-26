@@ -1,5 +1,6 @@
 import { prisma } from './prisma'
 
+// Lista de palavras com as categorias, com cada elemento tendo duas strings
 const palavras: [string, string][] = [
   ['PROMISE', 'JavaScript'], ['CALLBACK', 'JavaScript'], ['CLOSURE', 'JavaScript'],
   ['ARRAY', 'JavaScript'], ['FUNCTION', 'JavaScript'], ['ASYNC', 'JavaScript'],
@@ -12,6 +13,7 @@ const palavras: [string, string][] = [
   ['RENDERIZACAO', 'React']
 ]
 
+// Percorre a lista e cadastra as palavras no banco, fazendo validções, se houve duplicatas ou não
 async function main(){
     for (const [palavra, categoria] of palavras){
         await prisma.palavra.upsert({
@@ -23,4 +25,5 @@ async function main(){
     console.log('Seed realizado')
 }
 
-main().finally(()=> prisma.$disconnect)
+// cadastra, e ao finalazar encerra conexão ao DB
+main().finally(()=> prisma.$disconnect())

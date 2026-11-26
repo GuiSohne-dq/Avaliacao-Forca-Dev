@@ -35,7 +35,7 @@ export function aplicarPalpite(partida: PartidaJogo, letra: string): PartidaJogo
     ? 'vitoria'
     : vidasRestantes <= 0
         ? 'derrota'
-        : 'em_andamento' //RN05
+        : 'em_andamento' 
     
     const pontos = venceu ? calcularPontos(partida.palavra, vidasRestantes) : 0
 
