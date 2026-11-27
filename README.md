@@ -4,8 +4,9 @@ Jogo da forca com termos de programação. O jogador informa um apelido, o servi
 
 A palavra secreta fica **só no servidor**: o front recebe apenas a máscara (ex.: `PR_M_SE`) e só vê a palavra quando a partida termina.
 
-![Tela do jogo](docs/tela-inicial.png)
 ![Tela do jogo](docs/tela-jogo.png)
+![Tela do jogo](docs/tela-inicial.png)
+
 
 ## Tecnologias
 
