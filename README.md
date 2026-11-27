@@ -25,7 +25,7 @@ A palavra secreta fica **só no servidor**: o front recebe apenas a máscara (ex
 
 ```bash
 git clone https://github.com/GuiSohne-dq/Avaliacao-Forca-Dev.git
-cd forca-dev
+cd Avaliacao-Forca-Dev
 ```
 
 ### 2. Back-end
